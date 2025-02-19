@@ -1,6 +1,20 @@
 cmake_minimum_required(VERSION 3.5)
 project(longhair)
 
+if(IOS)
+    add_definitions(-DIOS)
+    message(STATUS "Building for iOS")
+else()
+    message(STATUS "Not building for iOS")
+endif()
+
+if(ANDROID)
+    add_definitions(-DANDROID)
+    message(STATUS "Building for ANDROID")
+else()
+    message(STATUS "Not building for ANDROID")
+endif()
+
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "" FORCE)
 
 set(CMAKE_CXX_STANDARD 11)
